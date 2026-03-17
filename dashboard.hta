@@ -1,0 +1,135 @@
+/*this is the hta and this is the script:*/
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ultimate Control Panel - Precíziós Kiadás</title>
+    <hta:application id="oApp" border="thin" caption="yes" sysmenu="yes" scroll="yes" singleinstance="yes">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { background: white; margin-bottom: 15px; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h2 { font-size: 13px; color: #636e72; text-transform: uppercase; margin: 0 0 10px 0; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+        
+        button { padding: 10px; cursor: pointer; border: 1px solid #dfe6e9; border-radius: 4px; background: #ffffff; color: #2d3436; font-weight: 600; transition: 0.1s; text-align: center; }
+        button:hover { background: #f8f9fa; border-color: #b2bec3; }
+
+        /* A normál, egyszínű csíkok (felül vastag, oldalt/alul marad a normál keret) */
+        .blue { border-top: 5px solid #0984e3; }      
+        .darkblue { border-top: 5px solid #4834d4; } 
+        .bat { border-top: 5px solid #636e72; }      
+        .orange { border-top: 5px solid #e17055; }   
+        .yellow { border-top: 5px solid #fdcb6e; }   
+        .firebase-orange { border-top: 5px solid #FF8A00; } 
+        .purple { border-top: 5px solid #8e44ad; }    
+        .black { border-top: 5px solid #000000; }    
+
+        /* Színátmenetes gombok - VISSZAKAPTÁK A KERETET, de felül színátmenetesek */
+        .gemini-gradient { 
+            border: 1px solid #dfe6e9; 
+            border-top: 0; 
+            padding-top: 15px; /* Hogy a magasság egyezzen a többivel */
+            background: linear-gradient(to right, #0984e3, #6c5ce7) no-repeat top / 100% 5px, #ffffff; 
+        }
+        .gemini-gradient:hover { 
+            background: linear-gradient(to right, #0984e3, #6c5ce7) no-repeat top / 100% 5px, #f8f9fa; 
+        }
+
+        .gmail-gradient { 
+            border: 1px solid #dfe6e9; 
+            border-top: 0; 
+            padding-top: 15px; 
+            background: linear-gradient(to right, #0984e3, #6c5ce7) no-repeat top / 100% 5px, #ffffff; 
+        }
+        .gmail-gradient:hover { 
+            background: linear-gradient(to right, #0984e3, #6c5ce7) no-repeat top / 100% 5px, #f8f9fa; 
+        }
+
+        .pixelarena-gradient { 
+            border: 1px solid #dfe6e9; 
+            border-top: 0; 
+            padding-top: 15px; 
+            background: linear-gradient(to right, #e74c3c, #0984e3) no-repeat top / 100% 5px, #ffffff; 
+        }
+        .pixelarena-gradient:hover { 
+            background: linear-gradient(to right, #e74c3c, #0984e3) no-repeat top / 100% 5px, #f8f9fa; 
+        }
+
+        /* Rendszer és Egyéb */
+        .rendszer-blue { border-top: 5px solid #0078d4; } 
+        .egyeb-szurke { border-top: 5px solid #b2bec3; } 
+    </style>
+
+    <script type="text/javascript">
+        // Szigorúan csak almappából!
+        function Run(fajl) {
+            try {
+                var shell = new ActiveXObject("WScript.Shell");
+                shell.Run('cmd /c start "" ".\\weboldalak\\' + fajl + '"', 0, false);
+            } catch (e) {
+                alert("Hiba: A fájl nem található a weboldalak mappában: " + fajl);
+            }
+        }
+
+        // Rendszer eszközök
+        function RunRendszer(parancs) {
+            try {
+                var shell = new ActiveXObject("WScript.Shell");
+                shell.Run('cmd /c start ' + parancs, 0, false);
+            } catch (e) {
+                alert("Rendszerhiba: " + parancs);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Weboldalak</h2>
+        <div class="grid">
+            <button class="blue" onclick="Run('aternos.vbs')">Aternos</button>
+            <button class="firebase-orange" onclick="Run('firebase.vbs')">Firebase</button>
+            <button class="gemini-gradient" onclick="Run('gemini.vbs')">Gemini</button>
+            <button class="gmail-gradient" onclick="Run('gmail.vbs')">Gmail</button>
+            <button class="blue" onclick="Run('hotkeys.vbs')">Hotkeys</button>
+            <button class="purple" onclick="Run('infinityfree.vbs')">InfinityFree</button>
+            <button class="blue" onclick="Run('messenger.vbs')">Messenger</button>
+            <button class="darkblue" onclick="Run('pixel12i.vbs')">Pixel12i</button>
+            <button class="pixelarena-gradient" onclick="Run('pixelarena.vbs')">PixelArena</button>
+            <button class="black" onclick="Run('sendanywhere.vbs')">SendAnywhere</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Szkriptek</h2>
+        <div class="grid">
+            <button class="blue" onclick="Run('weboldalak.vbs')">Oldalaim</button>
+            <button class="blue" onclick="Run('CLOSE.vbs')">Close VBS</button>
+            <button class="bat" onclick="Run('Allclose.bat')">All Close</button>
+            <button class="bat" onclick="Run('CLOSE.bat')">Close BAT</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Telepítők</h2>
+        <div class="grid">
+            <button class="orange" onclick="Run('BraveBrowserSetup.exe')">Brave Setup</button>
+            <button class="yellow" onclick="Run('chrome_setup.exe')">Chrome Setup</button>
+            <button class="orange" onclick="Run('vlc_setup.exe')">VLC Setup</button>
+            <button class="darkblue" onclick="Run('discord_setup.exe')">Discord Setup</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Eszközök</h2>
+        <div class="grid">
+            <button class="rendszer-blue" onclick="RunRendszer('taskmgr.exe')">Feladatkezelő</button>
+            <button class="egyeb-szurke" onclick="RunRendszer('cmd.exe')">CMD</button>
+            <button class="egyeb-szurke" onclick="RunRendszer('calc.exe')">Számológép</button>
+        </div>
+    </div>
+
+</body>
+</html>
