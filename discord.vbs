@@ -2,7 +2,7 @@
 Set objShell = CreateObject("WScript.Shell")
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 
-url = "https://discord.com/channels/@me/1449139715256221777"
+url = "https://discord.com/"
 
 ' Miket keresünk?
 Dim browsers(1)
