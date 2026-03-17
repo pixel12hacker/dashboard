@@ -1,4 +1,2 @@
-# dashboard
-this is a dasboard for many vbs and bat script and this can be install brave chrome  vlc or discord and can open system programs like taskmgr.exe or calc.exe 
-the scripts can open web sites and if you use in your broswer the i  will continue where I left off the close bat can close this and the close vbs too 
-now only available hungarian buttons but maybe I'll develop it further and then it will be available in English too
+# Script Manager Dashboard (HTA Dashboard)
+This interface provides centralized access to a variety of VBS and Batch workflows. It allows for automated installation of essential software (Brave, Chrome, VLC, Discord) and instant launch of system utilities (task manager, calculator). Scripts have native browser integration, so they can resume the previous session. The shutdown process is optimized: Batch-based exit also terminates running VBS processes. The interface is currently in Hungarian, multilingual (English) support is in development.
